@@ -6,8 +6,7 @@ RUN dotnet restore
 RUN dotnet publish  -c Release
 
 # final stage
-#FROM mcr.microsoft.com/dotnet/aspnet:5.0.6-alpine3.13
-FROM registry.redhat.io/ubi8/dotnet-50-runtime:latest
+FROM mcr.microsoft.com/dotnet/aspnet:5.0.6-alpine3.13
 WORKDIR /app
 COPY --from=build-env /app /app/
 ENTRYPOINT ["dotnet", "bin/Release/net5.0/os-dotnet.dll"]
