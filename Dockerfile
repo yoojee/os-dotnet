@@ -1,5 +1,6 @@
 # build stage
-FROM mcr.microsoft.com/dotnet/sdk:5.0.203-alpine3.13 AS build-env
+#FROM mcr.microsoft.com/dotnet/sdk:5.0.203-alpine3.13 AS build-env
+FROM mcr.microsoft.com/dotnet/sdk:latest AS build-env
 COPY . /app
 WORKDIR /app
 RUN dotnet restore
