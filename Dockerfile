@@ -6,7 +6,8 @@ RUN dotnet restore
 RUN dotnet publish  -c Release
 
 # final stage
-FROM mcr.microsoft.com/dotnet/aspnet:5.0.6-alpine3.13
+#FROM mcr.microsoft.com/dotnet/aspnet:5.0.6-alpine3.13
+FROM mcr.microsoft.com/dotnet/aspnet:latest
 WORKDIR /app
 COPY --from=build-env /app /app/
 ENTRYPOINT ["dotnet", "bin/Release/net5.0/os-dotnet.dll"]
